@@ -10,6 +10,10 @@ body {
   background-color: pink;
 }
 
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
 .error-message {
   color: lightcoral;
   white-space: pre-line;
