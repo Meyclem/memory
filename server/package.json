@@ -1,0 +1,33 @@
+{
+  "name": "server",
+  "private": true,
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "nodemon",
+    "start": "node src/index.js",
+    "test": "node --experimental-vm-modules node_modules/.bin/jest --runInBand"
+  },
+  "type": "module",
+  "dependencies": {
+    "cookie-parser": "^1.4.4",
+    "cors": "^2.8.5",
+    "debug": "^2.6.9",
+    "dotenv": "^10.0.0",
+    "express": "^4.16.1",
+    "mongodb": "^3.6.9",
+    "morgan": "^1.9.1",
+    "node-fetch": "^2.6.1"
+  },
+  "devDependencies": {
+    "@jest/globals": "^27.0.3",
+    "eslint": "^7.28.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-import": "^2.23.4",
+    "eslint-plugin-prettier": "^3.4.0",
+    "jest": "^25.2.2",
+    "nodemon": "^2.0.7",
+    "prettier": "^2.3.1",
+    "supertest": "^6.1.3"
+  }
+}

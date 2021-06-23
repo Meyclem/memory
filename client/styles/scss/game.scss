@@ -1,0 +1,267 @@
+$light-grey: rgba(0, 0, 0, 0.1);
+$dark-grey: rgba(0, 0, 0, 0.5);
+$rounded: 4px;
+
+#game {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+#scores {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+
+  table {
+    width: fit-content;
+    height: 250px;
+    width: 600px;
+    display: block;
+    overflow-y: scroll;
+    position: relative;
+  }
+
+  thead {
+    background-color: pink;
+    position: fixed;
+  }
+
+  tbody {
+    height: 200px;
+    padding-top: 30px;
+    display: block;
+  }
+
+  th {
+    font-weight: bold;
+    height: 30px;
+    border: 1px solid lightcoral;
+    text-align: center;
+    padding-top: 6px;
+  }
+
+  td {
+    padding: 5px 20px;
+  }
+
+  th, td {
+    width: 100px;
+
+    &:first-child {
+      width: 300px;
+    }
+  }
+}
+
+.grid {
+  width: fit-content;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-auto-rows: 100px;
+  grid-gap: 10px;
+  padding: 0 10px;
+
+  &.frozen {
+    pointer-events: none;
+    cursor: not-allowed;
+  }
+}
+
+.game-button {
+  background-color: lightcoral;
+  border-radius: $rounded;
+  padding: 10px;
+  border: 0;
+  font-size: 20px;
+  width: 100%;
+  cursor: pointer;
+  transition: background-color ease-in-out 0.15s;
+
+  &:hover {
+    background-color: rgb(224, 115, 115);
+  }
+
+  &:focus {
+    background-color: rgb(255, 144, 144);
+  }
+}
+
+#menu {
+  height: 150px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: center;
+  font-size: 20px;
+  align-items: center;
+
+  h2 {
+    color: $dark-grey;
+    font-weight: bold;
+    font-size: 32px;
+    text-transform: uppercase;
+  }
+
+  p {
+    color: $dark-grey;
+  }
+
+  label {
+    width: 100%;
+    color: $dark-grey;
+  }
+  
+  input {
+    font-size: 20px;
+    width: 100%;
+    padding: 10px 10px;
+    border-radius: $rounded;
+    background-color: transparent;
+    border: 1px solid $light-grey;
+  }
+}
+
+#timer-container {
+  // Tells the timer to take the fill width of the css grid.
+  grid-column: 1 / -1;
+  height: 20px;
+  border: 2px solid $light-grey;
+
+  #timer {
+    height: 100%;
+    width: 0%;
+    background-color: lightcoral;
+  }
+}
+
+/*
+  This 'progress' animation is ready to be used by the '#timer' but will be added in the
+  JavaScript code of the 'Game'.
+*/
+@keyframes progress {
+  0%{
+    width: 0%;
+  }
+  100%{
+      width: 100%;
+  }
+};
+
+.card {
+  height: 100px;
+  width: 100px;
+  cursor: pointer;
+  transition: transform ease-in-out 0.15s;
+  border-radius: $rounded;
+  background: repeating-linear-gradient(
+      45deg,
+      #ffdbe1,
+      #ffdbe1 7px,
+      #ffc0cb 7px,
+      #fab3bf 14px
+    );
+
+  &:hover {
+    /* 
+      '!important' is needed because of how cascades works.
+      Without it, the 'transform' property overrides the one on '.revealed' or
+      '.not-revealed' with only the 'scale' and without the 'rotate'.
+    */
+    transform: rotateY(180deg) scale(1.05) !important;
+    box-shadow: 0 4px 6px -1px $light-grey, 0 2px 4px -1px rgba(0, 0, 0, 0.1);
+  }
+
+  &.revealed {
+    pointer-events: none;
+    transform: rotateY(360deg);
+    transition: transform ease-in-out 0.5s;
+    border: 3px solid lightcoral;
+  }
+
+  &.not-revealed {
+    transform: rotateY(180deg);
+    border: 3px solid #ffdbe1;
+  }
+
+  &.fruit {
+    background-image: url(../../assets/fruits.png);
+  }
+
+  &.red-apple {
+    // This property allows the usage of the same image with an offset to display the right fruit
+    background-position: 0px 0px;
+  }
+
+  &.banana {
+    background-position: 0px -100px;
+  }
+
+  &.orange {
+    background-position: 0px -200px;
+  }
+
+  &.lime {
+    background-position: 0px -300px;
+  }
+  
+  &.pomegranate {
+    background-position: 0px -400px;
+  }
+  
+  &.apricot {
+    background-position: 0px -500px;
+  }
+  
+  &.lemon {
+    background-position: 0px -600px;
+  }
+  
+  &.strawberry {
+    background-position: 0px -700px;
+  }
+  
+  &.green-apple {
+    background-position: 0px -800px;
+  }
+  
+  &.mandarin {
+    background-position: 0px -900px;
+  }
+  
+  &.grape {
+    background-position: 0px -1000px;
+  }
+  
+  &.watermelon {
+    background-position: 0px -1100px;
+  }
+  
+  &.plum {
+    background-position: 0px -1200px;
+  }
+  
+  &.pear {
+    background-position: 0px -1300px;
+  }
+  
+  &.cherry {
+    background-position: 0px -1400px;
+  }
+  
+  &.raspberry {
+    background-position: 0px -1500px;
+  }
+  
+  &.mango {
+    background-position: 0px -1600px;
+  }
+  
+  &.yellow-cherry {
+    background-position: 0px -1700px;
+  }
+}

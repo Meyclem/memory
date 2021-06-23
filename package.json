@@ -1,0 +1,15 @@
+{
+  "name": "memory",
+  "license": "MIT",
+  "private": true,
+  "version": "0.0.1",
+  "engines": {
+    "node": "14.17.1"
+  },
+  "workspaces": ["client", "server"],
+  "scripts": {
+    "dev": "overmind start -N",
+    "start": "node server/src/index.js",
+    "test": "yarn workspace client test && yarn workspace server test"
+  }
+}
