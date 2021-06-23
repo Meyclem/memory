@@ -27,6 +27,8 @@ yarn install
 
 ## Usage
 
+### With Overmind
+
 ```bash
 # Start applications and database:
 overmind start -N
@@ -37,6 +39,18 @@ It will start 3 services:
 - `database`: MongoDB database on `mongodb://memory-api:password@localhost:27017/memory`
 
 To stop all processes, use the `overmind kill` command in another terminal window.
+
+### Without Overmind
+
+```bash
+# in src/client
+yarn dev
+
+# in src/server
+docker compose up
+# and in another terminal window
+yarn dev
+```
 
 ## Tests
 
