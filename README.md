@@ -31,6 +31,8 @@ yarn install
 
 ```bash
 # Start applications and database:
+yarn dev
+# or
 overmind start -N
 ```
 It will start 3 services:

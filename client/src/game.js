@@ -74,7 +74,7 @@ const availablefruits = [
 ]
 class Game {
   /**
-   * Function used to generate the score table in the menu.
+   * The Game class constructor, used to generate a new game in the browser.
    * @constructor
    * @param gameContainer The html element the game will be generated in
    * @param gameConfig The base configuration for the game
